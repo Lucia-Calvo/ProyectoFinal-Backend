@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Premium</title>
+   </head>
+   <body>
+      <div class="row-md-4 d-flex align-items-center justify-content-center">
+         <ul class="nav justify-content-end">
+            <li class="nav-item">
+               <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/register">Registrarse</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/realtimeProducts">Formulario</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/chat">Chat</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-linK" href="/products">Prendas</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/profile">Perfil</a>
+            </li>
+            <li>
+               <button id="cartButton">Carrito</button>
+            </li>
+         </ul>
+      </div>
+      <div class="container">
+         <h1 class="color1">Premium</h1>
+         <div class="container">
+            <form action="/api/users/premium/{{userId}}" method="post" enctype="multipart/form-data">
+               <h2>Subir archivos</h2>
+               <label for="profileImage">Imagen de perfil</label>
+               <input type="file" name="profiles" id="profileImage" accept="image/*">
+               <br>
+               <label for="productImage">Imagen de producto</label>
+               <input type="file" name="products" id="productImage" accept="image/*">
+               <br>
+               <label for="document">Imagen de perfil</label>
+               <input type="file" name="document" id="document" accept=".pdf, .doc, .docx">
+               <br>
+               <button type="submit">Mejorar a premium</button>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

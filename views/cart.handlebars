@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+  </head>
+  <body>
+    <div class="row-md-4 d-flex align-items-center justify-content-center">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Registrarse</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/realtimeProducts">Formulario</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/chat">Chat</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/products">Prendas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Perfil</a>
+        </li>
+        <li>
+          <button id="cartButton">Carrito</button>
+        </li>
+      </ul>
+    </div>
+    <div class="container">
+      <h1 class="color1">Carrito</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table">
+              <ul class="color1">
+                {{#each products}}
+                <li>
+                  {{this.product.title}}
+                  - ${{this.product.price}}
+                  - Cantidad:
+                  {{this.quantity}}
+                </li>
+                {{/each}}
+              </ul>
+              <div class="color1">
+                <button onclick="realizarCompra()" class="button">Comprar</button>
+              </div>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function purchaseCart() {
+        fetch(`/api/carts/${cid}/purchase`, {
+            method: 'POST',
+            headers: {   "Content-Type": "application/json", }
+        })
+          .then(res => {
+            if (res.ok) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Compra completada",
+                    text: "Compra completada"
+                });
+              return res.json();
+            } else {
+              throw new Error('No se pudo completar la compra.');
+            }
+          })
+          .catch(err => {
+            console.error(err);
+            Swal.fire({
+              icon: "error",
+              text: `No se pudo completar la compra del carrito.`
+            });
+          });
+      }
+      function realizarCompras() {
+        const cid = await obtenerIdCarrito();
+        if (!cid) {
+          console.error("No se pudo encontrar el carrito");
+          return;
+        }
+        fetch(`/api/carts/${cid}/purchase`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }) 
+        .catch(err => {
+          console.error(err);
+          Swal.fire({
+            icon: "error",
+            text: `No se pudo completar la compra del carrito.`
+          });
+        });
+      }
+    </script>
+  </body>
+<script src="../src/public/cart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</html>

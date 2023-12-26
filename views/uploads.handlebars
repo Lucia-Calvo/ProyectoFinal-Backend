@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="../src/public/css/style.css">
+   <title>Document</title>
+</head>
+<body>
+   <div class="row-md-4 d-flex align-items-center justify-content-center">
+      <ul class="nav justify-content-end">
+         <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/register">Registrarse</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/realtimeProducts">Formulario</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/chat">Chat</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/products">Prendas</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/profile">Perfil</a>
+         </li>
+         <li>
+            <button id="cartButton">Carrito</button>
+         </li>
+      </ul>
+   </div>
+   <div class="container">
+      <form action="/api/users/{{userId}}/documents" id="uploadForm" target="_blank" method="post" enctype="multipart/form-data">
+         <h3 class="color1">Uploads</h3>
+         <label for="profileImage" class="color1">Imagen de perfil</label>
+         <input type="file" name="profiles" id="profileImage" accept="image/*">
+         <br>
+         <label for="productImage" class="color1">Imagen de producto</label>
+         <input type="file" name="products" id="productImage" accept="image/*">
+         <br>
+         <label for="document" class="color1">Documento</label>
+         <input type="file" name="document" id="document" accept=".pdf,.doc,.docx">
+         <br>
+         <button type="submit" class="button">Subir</button>
+      </form>
+      <div id="uploadMessage"></div>
+         <form action="/api/users/{{userId}}/premium-documents" id="uploadPremiumForm" method="post" enctype="multipart/form-data">
+            <h3 class="color1">Subir data premium</h3>
+            <label for="identificationDocument" class="color1">Identificacion</label>
+            <input type="file" name="identificationDocument" id="identificationDocument" accept="image/*, .pdf">
+            <br>
+            <label for="domicileProofDocument" class="color1">Prueba de la documentacion de domicilio</label>
+            <input type="file" name="domicileProofDocument" id="domicileProofDocument" accept="image/*, .pdf">
+            <br>
+            <label for="accountStatementDocument"class="color1">Documentacion de la cuenta</label>
+            <input type="file" name="accountStatementDocument" id="accountStatementDocument" accept="image/*, .pdf">
+            <br>
+            <button type="submit" class="button">Subir</button>
+         </form>
+         <div id="uploadPremiumMessage">
+            <form action="/api/users/premium/{{userId}}" method="post">
+               <div class="color1"><button class="button" type="submit">Mejorar a premium</button></div>
+            </form>
+         </div>
+      </div>
+   </div>
+</body>
+</html>

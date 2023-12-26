@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../src/public/css/style.css">
+      <title>Chat</title>
+   </head>
+   <body>
+      <div class="row-md-4 d-flex align-items-center justify-content-center">
+         <ul class="nav justify-content-end">
+            <li class="nav-item">
+               <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/register">Registrarse</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/realtimeProducts">Formulario</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/chat">Chat</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/products">Prendas</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/profile">Perfil</a>
+            </li>
+            <li>
+               <button id="cartButton">Carrito</button>
+            </li>
+         </ul>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-4 offset-md-4">
+               <div id="chat-container">
+                  <h4 id="nombreusuario">Usuario</h4>
+                  <div id="chat-messages">
+                     <div class="message sender">
+                        <p id="chat"></p>
+                     </div>
+                  </div>
+                  <form id="formulario">
+                     <input type="text" name="mensaje" id="mensaje" placeholder="Escriba su mensaje">
+                     <input type="submit" value="Enviar">
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+   <script src="/socket.io/socket.io.js"></script>
+   <script src="../src/public/chat.js"></script>
+</html>

@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="../src/public/css/style.css">
+   <title>Product details</title>
+</head>
+<body>
+   <div class="row-md-4 d-flex align-items-center justify-content-center">
+      <ul class="nav justify-content-end">
+         <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/register">Registrarse</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/realtimeProducts">Formulario</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/chat">Chat</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/products">Prendas</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/profile">Perfil</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/usermanagment">Manejador de usuarios</a>
+         </li>  
+         <li>
+            <button id="cartButton">Carrito</button>
+         </li>
+      </ul>
+   </div>
+   <div class="col-md-8 offset-md-4">     
+      <div class="product-detail-container">
+         <div class="details">
+            <div class="imgBx">
+               <img src={{product.thumbnail}} width="150"/>
+            </div>
+            <div class="contentBx">
+               <h1>{{product.title}}</h1>
+               <p>{{product.description}}</p>
+               <div class="color">
+                  <p>Precio: {{product.price}}</p>
+               </div>
+               <p><button class="btn btn-dark" onclick="agregarProductoAlCarrito('{{product._id}}')">Agregar</button></p>
+            </div>
+         </div>
+      </div>
+   </div> 
+</body>
+<script src="../src/public/cart.js"></script>
+</html>

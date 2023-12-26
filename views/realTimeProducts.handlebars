@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/public/css/style.css">
+    <title>Real Time Products</title>
+  </head>
+  <body>
+    <div class="row-md-4 d-flex align-items-center justify-content-center">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Registrarse</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/realtimeProducts">Formulario</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/chat">Chat</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/products">Prendas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/usermanagment">Manejador de usuarios</a>
+        </li>  
+        <li>
+          <button id="cartButton">Carrito</button>
+        </li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="formulario">
+        <form id="productForm"  class="productForm">
+          <input type="text" id="title" name="title" placeholder="Título" required>
+          <input type="text" id="description" name="description" placeholder="Descripción" required>
+          <input type="number" id="code" name="code" placeholder="Código" required>
+          <input type="number" id="price" name="price" placeholder="Precio" required>
+          <input type="number" id="stock" name="stock" placeholder="Stock" required>
+          <input type="text" id="category" name="category" placeholder="Categoría" required>
+          </select>
+          <input type="text" id="thumbnail" name="thumbnail" placeholder="URL de la imagen" required>
+          <input type="hidden" id="productId" name="productId">
+          <button type="submit" id="submitButton" class="button">Agregar producto</button>
+        </form>
+      </div>
+      <ul id="productList" class="realtime-products">
+        {{#each products}}
+        <li id="product-{{this._id}}" class="product">
+          <img src={{this.thumbnail}} alt={{this.title}}>
+          <span>Producto: {{this.title}} - Stock: {{this.stock}} - Descripcion: {{this.description}}</span>
+          <button class="delete-button button" data-id="{{this._id}}">Eliminar</button>
+          <button class="edit-button button" data-id="{{this._id}}">Editar</button>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="../src/public/realTimeProducts.js"></script>
+  <script src="../src/public/cart.js"></script>
+  </body>
+</html>

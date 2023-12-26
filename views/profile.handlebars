@@ -1,0 +1,68 @@
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../src/public/css/style.css">
+      <title>Profile</title>
+   </head>
+   <body>
+      <div class="row-md-4 d-flex align-items-center justify-content-center">
+         <ul class="nav justify-content-end">
+            <li class="nav-item">
+               <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/register">Registrarse</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/realtimeProducts">Formulario</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/chat">Chat</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/products">Prendas</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/profile">Perfil</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/usermanagment">Manejador de usuarios</a>
+            </li>                    
+            <li>
+               <button id="cartButton">Carrito</button>
+            </li>
+         </ul>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-4 offset-md-4">
+               <div class="user-data">
+                  <h1 class="color1" >Bienvenido, {{user.full_name}} {{user.first_name}}</h1>
+                  <p class="color2">Email: {{user.email}}</p>
+                  <p class="color2">Rol: {{user.role}}</p>
+               </div>
+               <div class="mb-3">
+                  <div class="color1" >
+                     <a href="/restore">
+                        <button class="button">Cambiar contrasena</button>
+                     </a>
+                  </div>
+                  <br>
+                  <div class="mb-3">
+                     <div class="color1">
+                        <a href="/upload/{{userId}}">
+                           <button class="button">Mejorar a premium</button>
+                        </a>
+                     </div>
+                  </div>
+                  <form action="/api/sessions/logout" method="POST" class="col-md-4 offset-md-4">
+                     <button type="submit" class="button">Log out</button>
+                  </form>
+               </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="../src/public/css/style.css">
+   <title>Restore password</title>
+</head>
+<body>
+   <div class="row-md-4 d-flex align-items-center justify-content-center">
+      <ul class="nav justify-content-end">
+         <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/register">Registrarse</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/realtimeProducts">Formulario</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/chat">Chat</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/products">Prendas</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/profile">Perfil</a>
+         </li>
+         <li>
+            <button id="cartButton">Carrito</button>
+         </li>
+      </ul>
+   </div>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4 offset-md-4">
+            <h1 class="color1">Restaurar contraseña</h1>
+            <form class="form_main" action="/api/sessions/restore-password" method="post">
+               <div class="login-form">
+                  <label class="form-label"></label>
+                  <div class="inputContainer">
+                     <input type="email" class="form-control" id="email" name="email" placeholder="Email" required/>
+                  </div>
+               </div>
+               <div class="login-form">
+                  <label class="form-label"></label>
+               </div>
+               <div class="color1">
+                  <button type="submit" class="button" id="btnLogIn">Restaurar</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</body>
+<script src="../src/public/js/restore.js"></script>
+</html>
